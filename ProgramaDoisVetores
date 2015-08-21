@@ -1,0 +1,24 @@
+#include "meuh.h"
+ /*Criar um programa que leia 8 elementos inteiros em um vetor A. 
+ Construir um vetor B do mesmo tipo e tamanho com os elementos do vetor A multiplicados por 3.
+ O elemento B[0] recebe o elemento A[0] * 3,
+  o elemento B[1] recebe o elemento A[1] * 3 e assim por diante, até a posição 7 do vetor.
+    Apresentar os elementos do vetor B.*/
+int main(){
+	//declaração dos vetores
+	int i, vetorA[8], vetorB[8];
+	puts("Vetor A \n");
+	//leitura do vetor A
+	for(i=0;i<8;i++){
+		printf("Digite a %d ° posição do vetor A:",i);
+		scanf("%d",&vetorA[i]);
+	}
+	//leitura do vetor B
+	puts("Vetor B \n");
+	for(i=0;i<8;i++){
+		vetorB[i] = vetorA[i] *3;
+		printf("%d \t",vetorB[i]);
+	}
+	getch();
+	return 0;
+}
