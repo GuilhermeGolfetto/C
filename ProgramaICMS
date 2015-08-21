@@ -1,0 +1,20 @@
+#include "meuh.h"
+
+/*O programa a seguir faz a leitura do preco bruto de um produto e calcula o 
+valor do ICMS a ser pago (sabendo que o ICMS equivale a 18% do preço do produto).
+ Neste exemplo foi utlizada uma constante simbolica para representar 
+ o percentual do ICMS.*/
+ 
+ //variavel constante chamada ICMS
+ #define ICMS 0.18 //18%
+int main(int argc, char *argv[]) {
+	float preco;
+	puts("Digite o preco do produto");
+	scanf("%f",&preco);
+	float acrecimo = preco * ICMS;
+	preco += acrecimo;
+	printf("valor ICMS acrecentado: %2.f \n",acrecimo);
+	printf("Valor novo: %2.f \n",preco);
+	getch();
+	return 0;
+}
