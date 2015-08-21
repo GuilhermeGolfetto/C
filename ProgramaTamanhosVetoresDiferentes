@@ -1,0 +1,43 @@
+#include "meuh.h"
+/*Criar um programa que leia três vetores (A, B e C) com 5 elementos inteiros cada.
+ Construir um vetor D, sendo esse a junção dos três outros vetores.
+  Desta forma, D deve ter o triplo de elementos dos outros 3 vetores.
+   Apresentar os elementos do vetor D.*/
+   
+#define TAM 5
+#define TAM_D 15
+int main(){
+	int i,A[TAM],B[TAM],C[TAM];
+	int D[TAM_D];
+	puts("A");
+	//laco para o vetor A
+	for(i=0;i<TAM;i++){
+		printf("A[%d]:",i);
+		scanf("%d",&A[i]);
+	}
+	puts("B");
+	//laco para o vetor B
+	for(i=0;i<TAM;i++){
+		printf("B[%d]:",i);
+		scanf("%d",&B[i]);
+	}
+	puts("C");
+	//laco para o vetor C
+	for(i=0;i<TAM;i++){
+		printf("C[%d]:",i);
+		scanf("%d",&C[i]);
+	}
+	puts("D");
+	//laco para o vetor D que soma todos elementos dos vetores ABC
+	for(i=0;i<TAM;i++){
+		D[i] = A[i]; //igualdade dos valores de A em D
+		D[i+5] = B[i]; //a partir do 5 elemento de D, teremos B[i]
+		D[i+10] = C[i]; //a partir do 10 elemento de D, teremos C[i]
+	}
+	//laco para varrer o vetor D - LEMBRAR DO TAMANHO DE D QUE É DIFERENTE.
+	for(i=0;i<TAM_D;i++){
+		printf("D[%d]: %d \t",i,D[i]);
+	}
+	getch();
+	return 0;
+}
