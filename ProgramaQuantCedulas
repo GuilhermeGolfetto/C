@@ -1,0 +1,33 @@
+/*Criar um programa que leia uma determinada quantia a ser retirada 
+em um caixa eletrônico e apresente a quantidade mínima de cédulas equivalente. 
+As cédulas são de 50, 20 e 10. 
+	Utilizar sempre que possível cédulas de maior valor. 
+	O valor da quantia a ser retirada deve ser múltiplo de 10. 
+	Guardar em um vetor a quantidade de cada cédula. 
+	Apresentar os dados do vetor de cédulas na tela.*/
+#include "meuh.h"
+
+int main(){
+	//declaração do contador e a quantida a ser retirada
+	int i, retirar;
+	//declaração dos vetores de celulas e quantidades de notas
+	int celulas[3] = {10,20,50}, quantidade[3];
+	puts("Informe qua a quantida a ser retirada (multiplo de 10):");
+	scanf("%d",&retirar);
+	//verificar se o numero digitado é multiplo de 10
+	if(retirar %10 != 0){
+		puts("ERRO 404 - A QUANTIDADE PRECISA SER MULTIPLA DE 10");
+	}
+	else{
+		//laco para varrer o vetor quant e saber quantas notas de cada celulas são usadas
+		for(i=0;i<3;i++){
+			quantidade[i] = retirar/celulas[i];
+		}
+		printf("Vai retirar R$%d \n \n",retirar);
+		for(i=0;i<3;i++){
+			printf("R$ %d = %d notas \n",celulas[i],quantidade[i]);
+		}
+	}
+	getch();
+	return 0;
+} 
