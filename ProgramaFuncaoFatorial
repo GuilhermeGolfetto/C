@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int Fatorial(int v){
+    int count,resp;
+    resp=1;
+    for(count=1;c<v;c++){
+        r=r*c;
+    }
+    return resp;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    int n, f;
+    printf("Digite um Número:");
+    scanf("%d",&n);
+    f=Fatorial(n);
+    printf("O valor de %d ! é igual a :%d",n,f);
+    return 0;
+}
