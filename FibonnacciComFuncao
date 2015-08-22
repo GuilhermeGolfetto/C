@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+/*Faça um Algoritmo que exiba a sequencia de Fibonacci até um número estipulado
+pelo usuário
+Exemplo:
+0 1 1 2 3 5 8 13 21 34 55...
+Lógica: Proximo Num é a soma do atual mais o Anterior
+Sequência de Fibonnacci
+*/
+
+int Fibonacci(int lim){ //Função para Calculo da sequencia, recebeu o valor de limite
+  int proxNum,num,cont,numAnt;
+  num=1;
+  proxNum=0;
+  numAnt=0;
+  for(cont=0;cont<lim;cont++){
+    proxNum = num + numAnt;
+    printf("%d \t",proxNum);
+    numAnt = num;
+    num = proxNum;
+  }
+}
+int main(int argc, char *argv[]) {
+  setlocale(LC_ALL,"Portuguese");
+  int limite;
+  printf("Digite o Limite da Sequência de Fibonnacci:");
+  scanf("%d",&limite);
+
+  Fibonacci(limite); //chamada da função com o valor de limite
+
+return 0;
+}
