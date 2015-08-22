@@ -1,0 +1,95 @@
+#include "meuh.h"
+/*Fazer um programa em C que oferença 3 opções de menu em um for ( ; ; ):
+
+Opção 1 : Ler um valor em Reais e mostrar a parte inteira separada dos centavos 
+- exemplo - R$1234.55 => 1234 + 0.55
+
+Opção 2:Ler um número inteiro e imprimir 10 multiplos deste numero ex: 9 -> 18,27,36,45
+
+Opção 3: Ler o nome completo de uma pessoa com gets e imprimir apenas seu primeiro nome 
+ex: Maria de Sousa => Maria.*/
+#define limpaTela() system("cls")
+void opcao1(){
+	double valor, fracionaria, inteira;
+	limpaTela();
+	printf("Digite o número real a ser quebrado (use virgula pra separar):");
+	scanf("%lf",&valor);
+	/*funcao que separa o ponto flutuante do valor e 
+	atribui a $fracionaria o ponto flutuante
+	e a $inteira a parte inteira*/
+	fracionaria = modf(valor, &inteira);
+	printf("Parte Inteira: %2.lf \n",inteira);
+	printf("Parte Fracionaria: %lf \n",fracionaria);
+	puts("Saindo da opção 1");
+	puts("presione Enter para voltar ao Menu");
+	getch();
+	limpaTela();
+}
+void opcao2(){
+	limpaTela();
+	int num,i,mult;
+	printf("Digite o número para saber seus multiplos:");
+	scanf("%d",&num);
+	for(i=0;i<10;i++){
+		mult = num * i;
+		printf("%d X %d = %d \n",num,i,mult);
+	}
+	puts("Saindo da opção 2");
+	puts("presione Enter para voltar ao Menu");
+	getch();
+	limpaTela();
+}
+void opcao3(){
+	limpaTela();
+	char nome[100];
+   	char *token;
+	printf("Digite seu nome completo:");
+	fflush(stdin); //limpar cache para o gets funcionar
+	gets(nome);
+	/*função strtok() para quebrar a string em palavras que vão ser guardadas em token
+	que vai mostrando e apagando o valor*/
+	token = strtok(nome," ,.-");
+	while(token != NULL){
+		printf("%s \n",token);
+		/*usei o " ,.-" que são os possiveis separadores das palavras na String
+		O que não for estes caracteres especiais sera tratada como palavra pro token e 
+		será exibida
+		*/
+		token=strtok(NULL," ,.-");
+	}
+	puts("Saindo da opção 3");
+	puts("presione Enter para voltar ao Menu");
+	getch();
+	limpaTela();
+}
+int main(){
+	setlocale(LC_ALL, "Portuguese");
+	int opcao;
+	system("color 02");
+	for( ; ; ){
+		puts("1 - Separar os centavos do dinheiro");
+		puts("2 - Mostrar Multiplos");
+		puts("3 - Separar teu primeiro Nome");
+		puts("0 - SAIR");
+		puts("Digite sua Opção:");
+		scanf("%d",&opcao);
+		if(opcao == 0){
+			puts("Saindo do programa...");
+			break;
+		}
+		switch(opcao){
+			case 1:
+				opcao1();
+			break;
+			
+			case 2:
+				opcao2();			
+			break;
+			case 3:
+				opcao3();
+			break;
+		}
+	}
+system("pause");
+return 0;
+}
