@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+  setlocale(LC_ALL, "Portuguese");
+  char time[3][30];
+  int i,j;
+  for(i=1;i<=3;i++){
+    printf("Digite o time:");
+    scanf("%s",&time[i]);
+  }
+system("cls");
+printf("Campeonato de Futebol\n");
+printf("---------------------\n");
+
+for(i=1;i<=3;i++){
+  for(j=1;j<=3;j++){
+    if(time[i]!=time[j])
+      printf("%s [] x [] %s",time[i],time[j]);
+  }
+}
+return 0;
+}
