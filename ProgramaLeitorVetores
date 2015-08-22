@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+//leitor de vetor
+
+int main(int argc, char *argv[]) {
+     int n[5]; //vetor com 6 posições (0,1,2,3,4,5)
+     int c; //contador para o vetor
+    
+     for(c=0;c<6;c++){ //contando cada unidade do vetor (não o numero) ate 5
+          printf("Digite um numero para a %d posição:",c);
+          scanf("%d",&n[c]);//atribuindo um valor para cada unidade
+     }
+    
+     for(c=0;c<6;c++){
+          printf("O valor %d é: %d \n",c,n[c]);
+     }
+     system("pause>>log");
+     return 0;
+}
