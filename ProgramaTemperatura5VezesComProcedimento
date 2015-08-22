@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <locale.h>
+int Calculos(){
+
+    int i,maior,temps[i],soma,imaior; //variaveis locais.
+     float media=0;
+     printf("Digite a temperatura:");
+     scanf("%d",&maior); //a primeira temperatura lida é a maior
+     soma=maior; //para conseguir fazer a media
+     for(i=0;i<4;i++){ //vai rodar 4 vezes porque ja leu a primeira em cima
+         printf("Digite a temperatura:");
+         scanf("%d",&temps[i]);
+         soma=soma+temps[i];
+         if(temps[i] > maior){ //condicional dentro para poder comparar todos os resultados
+             maior=temps[i];
+             imaior=i;
+         }
+     }
+     media=soma/5;
+     return(maior);//o valor que a função vai retornar pro programa principal
+ } 
+int main()
+{
+     int maiorTemp; 
+     setlocale(LC_ALL, "Portuguese");
+     maiorTemp= Calculos(); //o retorno da função vai retornar pra variavel Global
+     printf("A maior temperatura foi %d graus \n",maiorTemp); 
+     system("Pause>>log");
+     return 0;
+}
