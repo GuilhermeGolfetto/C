@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define LIN 2 
+#define COL 3
+/*CRIAR UM PROG. QUE LEIA DUAS MATRIZES 2X3 DE INTEIROS, CALCULE A APRESENTE A SOMA DAS DUAS MATRIZES.*/
+int main (){
+    int m1[LIN][COL];
+    int m2[LIN][COL];
+    int result[LIN][COL];
+    int i,j;
+    //Lendo valores da Matriz 1
+    for(i=0;i<LIN;i++){
+        for(j=0;j<COL;j++){
+            printf("m1[%d][%d]:",i,j);
+            scanf("%d",&m1[i][j]);
+        }
+    }
+    
+    printf("\n");
+    //Lendo valores da Matriz 2
+    for(i=0;i<LIN;i++){
+        for(j=0;j<COL;j++){
+            printf("m2[%d][%d]:",i,j);    
+            scanf("%d",&m2[i][j]); 
+        }
+    }
+    //Calculando a Matriz 3
+    for(i=0;i<LIN;i++){
+        for(j=0;j<COL;j++){
+            result[i][j] = m1[i][j] + m2[i][j];
+        }    
+    }
+    
+    //Exibindo os Valores:
+    printf("\n Matriz Resultante:\n");
+    for(i=0;i<LIN;i++){
+        for(j=0;j<COL;j++){
+            printf("[%d]  ",result[i][j]);
+        }
+        printf("\n");
+    }
+        
+    system("PAUSE");
+    return 0;
+}
