@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define LIN 4 
+#define COL 4
+/*CRIAR UM PROG. que leia uma matriz 4x4 de inteiros, calcule e aprensente a soma dos elementos abaixo da diagonal principal.*/
+int main (){
+    int m1[LIN][COL];
+    int i,j;
+    //Lendo valores da Matriz 
+    for(i=0;i<LIN;i++){
+        for(j=0;j<COL;j++){
+            printf("m1[%d][%d]:",i,j);
+            scanf("%d",&m1[i][j]);
+        }
+    }
+    
+    printf("\n");
+    //Calculando a soma
+    int soma=0;
+    for(i=0;i<LIN;i++){
+        for(j=0;j<COL;j++){
+            if(i>j){
+                soma += m1[i][j];
+            }
+        }    
+    }
+    //Exibindo a matriz
+    for(i=0;i<LIN;i++){
+        for(j=0;j<COL;j++){
+            printf("[%d] ",m1[i] [j]);
+        }
+        printf("\n");
+    }
+    
+    
+    printf("A soma do triangulo inferior é : %d \n",soma);
+    system("PAUSE");
+    return 0;
+}
