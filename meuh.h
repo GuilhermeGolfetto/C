@@ -5,3 +5,4 @@
 #include <ctype.h>
 #include <math.h>
 #include <locale.h>
+#include <string.h>
