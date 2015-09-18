@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*Criar um PROG que leia um nome e aparensente esse nome e sua quantidade de caracteres se a primeira 
+letra do nome for A (Maiuscula ou Minúscula)*/
+int main (){
+    char nome[30];
+    printf("Digite seu nome:");
+    gets(nome);
+    if(nome[0] == 'a' || nome[0] == 'A'){
+        int quant = strlen(nome);
+        printf("seu nome tem %d caracteres \n", quant);
+    }
+    else{
+        printf("Seu nome não sera contato, porque nao comeca com A \n");
+    }
+    system("PAUSE");
+    return 0;
+}
