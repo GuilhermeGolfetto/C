@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+    char s1[30],s2[30];
+    strcpy(s1,"Linguaguem C");
+    printf("Printf:");
+    gets(s2);
+    if(strcmp (s1,s2) == 0){  
+        printf("Iguais \n");
+    }
+    else{
+        printf("Diferentes \n");
+    }
+    system("pause");
+    return 0;
+}
