@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*Criar um prog que leia um apalvra e apresente:
+    -seu primeiro caractere
+    -seu ultimo caractere
+    -seu tamanho*/
+int main(){
+    char str[31];
+    printf("String:");
+    gets(str);
+    
+    printf("O primeiro Caracter: %c \n",str[0]);
+    
+    int i = 0;
+    while( str[i] != '\0'){
+        i++;
+        if(str[i] == '\0'){
+            printf("O Ultimo caracter: %c \n",str[i-1]);
+        }
+    } //poderia ter usado o strlen(palavra) e subtrair um
+    
+    int tam = strlen(str);
+    printf("O tamanho da String: %d \n",tam);
+    
+    
+    system("PAUSE");
+    return 0;
+}
