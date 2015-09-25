@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*Criar um programa que leia dois nomes e apresente-os em ordem alfabetica*/
+int main(){
+    char s1[30],s2[30];
+    printf("String 1:");
+    gets(s1);
+    printf("String 2:");
+    gets(s2);
+    if(strcmp(s1,s2)<0){
+        puts(s1);
+        puts(s2);
+    }
+    else{
+        puts(s2);
+        puts(s1);
+    }
+    system("PAUSE");
+    return 0;
+}
