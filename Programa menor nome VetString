@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define TAM 10
+/*CRIAR UM PRO QUE LEIA 10 NOMES EM UM VETOR E A 
+SEGUIR APRESENTE O NOME LEXICOGRAFICAMENTE MENOR DO VETOR E 
+TAMBÉM O SEU TAMANHO*/ 
+int main(){   
+    char nomes[TAM][31];
+    int i;
+    char menor[31];
+    for(i=0;i<TAM;i++){
+            printf("Nome %d:",i);
+            gets(nomes[i]);
+        }
+    strcpy(menor,nomes[0]);
+        
+    for(i=1; i<TAM; i++){
+        if(strcmpi(menor,nomes[i]) >0){
+            strcpy(menor,nomes[i]);
+        }
+    }    
+    printf("\n");
+    printf("Menor Nome:");
+    puts(menor);
+    system("pause>>log");
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define TAM 10
+/*CRIAR UM PRO QUE LEIA 10 NOMES EM UM VETOR E A 
+SEGUIR APRESENTE O NOME LEXICOGRAFICAMENTE MENOR DO VETOR E 
+TAMBÉM O SEU TAMANHO*/ 
+int main(){   
+    char nomes[TAM][31];
+    int i;
+    char menor[31];
+    for(i=0;i<TAM;i++){
+            printf("Nome %d:",i);
+            gets(nomes[i]);
+        }
+    strcpy(menor,nomes[0]);
+        
+    for(i=1; i<TAM; i++){
+        if(strcmpi(menor,nomes[i]) >0){
+            strcpy(menor,nomes[i]);
+        }
+    }    
+    printf("\n");
+    printf("Menor Nome:");
+    puts(menor);
+    system("pause>>log");
+    return 0;
+}
