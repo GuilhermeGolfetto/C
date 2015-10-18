@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define TAM 10
+/*Criar um programa que leia 10 nomes completos e ao final apresente uma listagem dos
+nomes no formato:
+ Sobrenome, Primeiro Nome*/
+ 
+ int main(){
+ 	char nomesC[TAM][30], sobrenomes[TAM][30], nomes[TAM][30];
+ 	int i,j,k,x,tam;
+ 	//pegar os nomes completos
+ 	for(i=0;i<TAM;i++){
+ 		printf("[%d] Digite o nome completo:",i);
+ 		gets(nomesC[i]);
+	}
+	//pegar os primeiros nomes
+	for(i=0;i<TAM;i++){
+		//deve valer 0 para correr a string certo
+		x=0;
+		for(j=0;nomesC[i][j]!= ' ';j++){
+			//lembrar do [i][x] por ser um vetor de string
+			nomes[i][x] = nomesC[i][j];
+			x++;
+		}
+		//aproveitar o ultimo valor e encerrar a string	atual
+		nomes[i][x] = '\0';
+	}
+	
+	//pegar os sobrenomes
+	for(i=0;i<TAM;i++){
+		tam = strlen(nomesC[i]);
+		x=0;
+		for(j=tam-1;nomesC[i][j]!= ' ';j--){
+			sobrenomes[i][x] = nomesC[i][j];
+			x++;
+		}
+		sobrenomes[i][x] = '\0';
+	}
+	
+	//exibindo os nomes
+	for(i=0;i<TAM;i++){
+		printf("%s, %s \n",strrev(sobrenomes[i]),nomes[i]);
+	}
+		
+	system("pause");
+	return 0;
+ }
