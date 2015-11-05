@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*criar uma funcao que receba um parametro inteiro N por referencia e uma parametro inteiro K por valor e incremente o valor de N em K unidades.*/
+void incrementar( int *a, int b){
+    *a +=b;
+}
+int main(){
+    int num1,num2;
+    printf("Digite o numero inicial:");
+    scanf("%d",&num1);
+    printf("Digite o incremento:");
+    scanf("%d",&num2);
+    incrementar(&num1, num2);
+    printf("numero incrementado:%d",num1);
+    system("pause>>log");
+    return 0;
+}
