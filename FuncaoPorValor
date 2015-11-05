@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Criar uma função que receba dois valores inteiros e retorne o maior valor informado*/
+int retorarMaior(int a,int b){
+    if( a > b){
+        return a;
+    }
+    else{
+        return b;
+    }    
+}
+
+
+int main(){
+    int num1,num2;
+    printf("Digite um numero:");
+    scanf("%d",&num1);
+    printf("Digite outro numero:");
+    scanf("%d",&num2);
+    int maior = retorarMaior(num1,num2);
+    printf("Maior numero: %d",maior);
+    system("pause>>log");
+    return 0;
+}
