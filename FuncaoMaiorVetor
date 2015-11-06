@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 4
+/*criar umna funcao que receba um vetor de float e retorne o maior elemento do vetor*/
+void ler(float v[],int t){
+    int i;
+    for(i = 0; i < t; i ++){
+        printf("Vetor[%d]:",i);
+        scanf("%f",&v[i]);
+    }
+}
+
+float obterMaior(float v[], int t){
+    int i;
+    float m = v[0];
+    for(i = 0; i < t; i++){
+        if(v[i] > m){
+            m = v[i];
+        }
+    }
+    
+    return m;
+}
+int main(){
+    float vet[TAM];
+    ler(vet, TAM);
+    float maior = obterMaior(vet, TAM);
+    printf("Maior número: %f",maior);
+    system("pause>>log");
+    return 0;
+}
