@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Data{
+    int dia,mes,ano;
+};
+int main(){
+    struct Data hoje;
+    printf("Dia:");
+    scanf("%d",&hoje.dia);
+    printf("Mes:");
+    scanf("%d",&hoje.mes);
+    printf("Ano:");
+    scanf("%d",&hoje.ano);
+    printf("%d/%d/%d \n",hoje.dia,hoje.mes,hoje.ano);
+    system ("Pause>>log");
+    return 0;
+}
