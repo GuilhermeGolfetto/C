@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct Aluno {
+    int codigo;
+    char nome[81];
+    float nota[3];
+};
+int main(){
+    struct Aluno aluno;
+    printf("Codigo:");
+    scanf("%d",&aluno.codigo);
+    getchar();
+    printf("Nome:");
+    gets(aluno.nome);
+    int i;
+    for(i = 0; i < 3; i++){
+        printf("nota %d:",i);
+        scanf("%f",&aluno.nota[i]);
+    }
+    float soma = 0.0;
+    for(i=0;i<3;i++){
+        soma += aluno.nota[i];
+    } 
+    printf("Codigo: %d \n",aluno.codigo);
+    printf("Nome:");
+    puts(aluno.nome);
+    printf("Notas: %.1f , %.1f ,%.1f \n",aluno.nota[0],aluno.nota[1],aluno.nota[2]);
+    printf("Media das notas: %.1f \n",soma/3);
+    system("pause>>log");
+    return 0;
+}
