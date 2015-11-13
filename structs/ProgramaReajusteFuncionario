@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*Um funcionario possui um nome e um salario. Criar uma estrutura funcionario
+Criar um prog. que leia os Dados de um Fun e um percentual de reajusta. 
+reajustar o salario do func e apresentar seus dados.*/
+struct Funcionario{
+    char nome[81];
+    float salario;
+};
+int main(){
+    float reajuste;
+    float aumento;
+    struct Funcionario func;
+    printf("Nome do Funcionario:");
+    gets(func.nome);
+    printf("Salario base:");
+    scanf("%f",&func.salario);
+    printf("Digite o reajuste do funcionario em %:");
+    scanf("%f",&reajuste);
+    reajuste /= 100;
+    aumento = func.salario * reajuste;
+    printf("Valor do Aumento: %.2f \n",aumento);
+    printf("Salario Reajustado:%.2f \n",func.salario+aumento);
+    system("pause>>log");
+    return 0;
+}
