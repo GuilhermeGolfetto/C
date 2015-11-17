@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*Uma empresa concederá um aumento de salário aos seus funcionários, 
+variável de acordo com o cargo, conforme atabela abaixo. 
+Se o código do funcionário não estiver na tabela, 
+ele deverá receber 40% de aumento. 
+Criar uma função que receba por referência o salário do funcionário 
+e por valor o código do cargo do funcionário e aumente o salário do
+funcionário conforme especificado. 
+Criar um programa que leia o salário do funcionário e o código do seu cargo, 
+chame a função de aumento de salário e apresente o novo salário do funcionário.
+
+Código Cargo Aumento
+G Gerente 10%
+E Engenheiro 20%
+T Técnico 30%
+*/
+void calcularAumento(char c, float *s){
+    float aumento = 0;
+    switch(c){
+        case 'g': case 'G':
+            aumento += (*s) * 0.1;
+            break;
+        case 'e': case 'E':
+            aumento += (*s) * 0.2;
+            break;
+        case 't': case 'T':
+            aumento += (*s) * 0.3;
+            break;
+        default:
+            aumento += (*s) * 0.4;
+    }
+    printf("\n \n O salario foi reajustado para : %2.f \n",*s+aumento);
+}
+
+int main(){
+    char cod = 0;
+    float salBase;
+    printf("Digite o codigo do Cargo deste funcionario:");
+    scanf("%c",&cod);
+    fflush(stdin);
+    printf("Digite o salario do funcionario:");
+    scanf("%f",&salBase);
+    calcularAumento(cod,&salBase);
+    system("pause");
+    return 0;
+}
