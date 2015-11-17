@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 10
+/*Criar uma função que receba um vetor de inteiros, 
+altere todos os valores ímpares contidos no vetor por 1 e retorne a 
+quantidade de valores alterados. 
+Criar um programa que leia um vetor de 10 valores inteiros,
+chame a função criada e apresente o novo vetor e a quantidade de valores alterados.*/
+
+int contadoraImpares(int v[TAM]){
+    int i, cont;
+    for(i=0;i<TAM;i++){
+        if(v[i] % 2 != 0){
+            cont++;
+        }
+    }
+    return cont;
+}
+int main(){
+    int vet[TAM],i,alt;
+    for(i=0;i<TAM;i++){
+        printf("Digite o valor da posição [%d]:",i);
+        scanf("%d",&vet[i]);
+    }
+    alt = contadoraImpares(vet);
+    printf("Foram alterados %d numeros \n",alt);
+    system("pause");
+    return 0;
+}
