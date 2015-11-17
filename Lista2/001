@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+/*Criar um programa que leia duas variáveis (a e b) do tipo real. 
+Criar um ponteiro pa que deve apontar para a variável
+a e um ponteiro pb que deve apontar para a variável b. 
+Calcular a média aritmética dos valores para os quais os ponteiros
+estão apontando e guardar o resultado em uma variável denominada media. 
+Não utilizar o valor de a e b diretamente. Ao
+final, apresentar o valor da variável media.*/
+int main(){
+    float a, b,media;
+    printf("Digite um valor para A:");
+    scanf("%f",&a);
+    printf("Digite um valor para B:");
+    scanf("%f",&b);
+    float *pa;
+    pa = &a;
+    float *pb;
+    pb = &b;
+    media = (*pa + *pb)/2;
+    printf("Media Aritimetica dos ponteiros:%.2f \n",media);
+    system("pause");
+    return 0;
+}
