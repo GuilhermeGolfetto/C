@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*Uma companhia de turismo para fazer reservas de passagens entra 
+com os seguintes dados cadastrais de cada passageiro:
+        Nome, Idade, Mês da Viagem, Preço Base. 
+		
+O sistema oferece o valor a ser pago de acordo com as regras:
++ se a idade for maior ou igual a 65, ou menor que 10, haverá 20% de desconto sobre o preço base.
++ se o mês da viagem for de baixa temporada (março, abril, maio, junho, setembro ou outubro) 
+haverá um desconto de mais 30% sobre o preço.
+
+Criar um programa que defina a estrutura Passageiro e tenha uma função que receba como parâmetro um passageiro e
+retorne o valor a ser pago.
+O programa principal deve ler os dados do passageiro e apresentar o nome do passageiro, o
+preço base e o preço final a ser pago.*/
+
+struct Passageiro {
+	char nome[81];
+	int idade;
+	int mesViagem;
+	float precoBase;
+};
+float calcularValorFinal(struct Passageiro p){
+	float desId,desMes;
+	if(p.idade >= 65 || p.idade < 10){
+		desId = p.precoBase * 0.2;
+	}
+	switch(p.mesViagem){
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 10:
+			desMes = p.precoBase * 0.3;
+			break;
+		default:
+            desMes = 0;
+	}
+	return (p.precoBase - desId) - desMes;
+}
+int main(){
+	struct Passageiro p;
+	float precoFinal;
+	printf("Entre com o nome do passageiro:");
+	gets(p.nome);
+	printf("Entre com a idade do passageiro:");
+	scanf("%d",&p.idade);
+	printf("Entre com o Mes da Viagem(somente numeros):");
+    scanf("%d,",&p.mesViagem);
+	printf("Entre com o preco Base:");
+	scanf("%f",&p.precoBase);
+	precoFinal = calcularValorFinal(p);
+	printf("\n \n Valor da viagem: %.2f \n",precoFinal);
+    system("pause");
+    return 0;
+}
