@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void AlgoritmoSelecao(int tamVetor, int vetor[]);
+
+void AlgoritmoRecursivoSelecao();
+
+void AlgoritmoInsercao(int tamVetor, int vetor[]);
+
+void AlgoritmoRecursivoInsercao();
+
+void ApresentarVetor(int tamVetor, int vetor[]);
+
+void AlgoritmoInsercaoImplementado1(int tamVetor, int vetor[]);
+
+void AlgoritmoInsercaoImplementacao2(int tamVetor, int vetor[]);
+
+int main(int argc, char *argv[])
+{
+  int tam = 10;
+  int vetor[10] = {5,7,9,8,2,10,16,1,0,95};
+  printf("\n \n \nvetor bagunçado \n \n \n");
+  ApresentarVetor(tam,vetor);
+  AlgoritmoSelecao(tam,vetor);
+  
+  int vetor2[10] = {5,7,9,8,2,10,16,1,0,95};
+  printf("\n \n \nvetor bagunçado \n \n \n");
+  ApresentarVetor(tam,vetor2);
+  AlgoritmoInsercao(tam,vetor2);
+  
+  int vetor3[10] = {5,7,9,8,2,10,16,1,0,95};
+  printf("\n \n \nvetor bagunçado \n \n \n");
+  ApresentarVetor(tam,vetor3);
+  AlgoritmoInsercaoImplementado1(tam,vetor3);
+  
+  int vetor4[10] = {5,7,9,8,2,10,16,1,0,95};
+  printf("\n \n \nvetor bagunçado \n \n \n");
+  ApresentarVetor(tam,vetor4);
+  AlgoritmoInsercaoImplementacao2(tam,vetor4);
+  
+  printf("\n\n teste");
+  system("PAUSE");	
+  return 0;
+}
+
+void ApresentarVetor(int tamVetor, int vetor[])
+{
+    int i=0;
+    printf("valor do vetor:\n\n");
+    for(i=0;i<tamVetor;i++)
+    {
+      printf("[%d]    ", vetor[i]);
+    }    
+}
+
+void AlgoritmoSelecao(int tamVetor, int vetor[])
+{
+     int i,j,min,x;
+     for(i = 0; i< tamVetor - 1; i++)
+     {
+         min = i;
+         for(j = i + 1; j<tamVetor; j++)
+         {
+            if(vetor[j] <= vetor[min])
+            {
+                min =j;
+            }
+         }
+         x = vetor[i];
+         vetor[i] = vetor[min];
+         vetor[min] = x;
+     }
+     printf("\n \n \nvetor ordenado \n \n \n");
+     ApresentarVetor(tamVetor, vetor);
+}
+void AlgoritmoInsercaoImplementacao2(int tamVetor, int vetor[])
+{
+     int i, j, x;
+     for(j=1;j<tamVetor;++j)
+     {
+         for(i = j-1;i>=0 && vetor[i] > vetor[i+1];--i)
+         {
+               x = vetor[i];
+               vetor[i] = vetor[i+1];
+               vetor[i+1] = x;
+         }
+     }
+     printf("\n \n \nvetor ordenado \n \n \n");
+     ApresentarVetor(tamVetor, vetor);
+}
+
+void AlgoritmoInsercao(int tamVetor, int vetor[])
+{
+    int i, j, x;
+    for( j = 1 ; j < tamVetor ; j++ )
+    {
+        x = vetor[j];
+        for( i = j-1 ; i >= 0 && vetor[i] > x ; i--)
+		{
+	 	    vetor[i+1] = vetor[i];
+	 	}
+	 	vetor[i+1] = x;
+
+	 }
+	 printf("\n \n \nvetor ordenado \n \n \n");
+     ApresentarVetor(tamVetor, vetor); 	 
+}
+
+void AlgoritmoInsercaoImplementado1(int tamVetor, int vetor[])
+{
+     int i, j, x;
+     for(j = 1; j < tamVetor; ++j)
+     {
+           x = vetor[j]; //segunda posição do vetor;
+           for(i = j -1; i >= 0 && vetor[i] > x; --i)
+           {
+                 vetor[i+1] = vetor[i];
+                 vetor[i] = x;
+           }
+
+     }
+     printf("\n \n \nvetor ordenado \n \n \n");
+     ApresentarVetor(tamVetor, vetor); 	 
+}
