@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+// incluir o conteudo do filas.h
+#define MAX 50
+
+typedef char tpElem;
+
+typedef struct{
+	int total, comeco, final;
+	tpElem valor[MAX];
+}tpFila;
+
+//INTERFACES
+//Inicia a Fila
+void qinit(tpFila *f);
+
+//Verifica se a fila esta cheia
+int qisFull(tpFila *f);
+
+//verifica se a fila esta vazia
+int qisEmpty(tpFila *f);
+
+//colocar um dado no fim da fila
+void enqueue(tpFila *f, tpElem x);
+
+//retirar um dado do comeco da fila
+tpElem dequeue(tpFila *f);
+
+
+int main(){
+	int i;
+	tpFila f;
+
+	char palavra[30];
+	printf("Digite uma string qualquer");
+	gets(palavra);
+
+	qinit(&f);
+
+	for (i = 0; i < strlen(palavra); i++) {
+		enqueue(&f, palavra[i]);
+	}
+
+	printf("\n\n Valor devolvido pela fila: ");
+	while(qisEmpty(&f)==0){
+		printf("%c", dequeue(&f));
+	}
+	printf("\n\n\n");
+	system("pause");
+	return 0;
+}
+// incluir o conteudo do filas.c ( menos a linha 1 )
+
+//Inicia a Fila
+void qinit(tpFila *f){
+	f ->total = 0;
+	f->comeco = 0;
+	f->final =0;
+}
+
+//Verifica se a fila esta cheia
+int qisFull(tpFila *f){
+	return (f->total==MAX);
+}
+
+//verifica se a fila esta vazia
+int qisEmpty(tpFila *f){
+	return(f-> total==0);
+}
+
+void adc(int *i){
+	(*i)++;
+	if(*i==MAX)
+		*i=0;
+}
+
+//colocar um dado no fim da fila
+void enqueue(tpFila *f, tpElem x){
+	if(qisFull(f)==0){
+		f->valor[f->final]=x;
+        adc(&f->final);
+        f->total++;
+	}else{
+		printf("Fila cheia! \n\n");
+	}
+}
+
+//retirar um dado do comeco da fila
+tpElem dequeue(tpFila *f){
+	tpElem x;
+	if(qisEmpty(f)==0){
+		x=(f->valor[f->comeco]);
+		adc(&f->comeco);
+		f->total--;
+		return x;
+	}else{
+		printf("Fila vazia \n\n");
+	}
+}
