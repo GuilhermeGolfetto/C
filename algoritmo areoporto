@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #define MAX 3
 #define limpaTela() system("cls")
-
+/*
+criar manual*/
 //OBJETO DA FILA
 typedef struct{
 	int id;
