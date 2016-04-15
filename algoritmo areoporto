@@ -1,0 +1,170 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 3
+#define limpaTela() system("cls")
+
+//OBJETO DA FILA
+typedef struct{
+	int id;
+	char[30] nome;
+	char[30] origem;
+	char[30] destino;
+	int numPass;
+	int capacidade;
+	char[30] modelo;
+}tpAviao;
+
+//ESTRUTURA DA FILA
+typedef struct{
+	int total, comeco, final;
+	tpAviao valor[MAX];
+}tpFila;
+
+//INTERFACES
+void inciaFila(tpFila *f);
+int filaCheia(tpFila *f);
+int filaVazia(tpFila *f);
+void entraFila(tpFila *f, tpAviao a);
+tpAviao sairFilar(tpFila *f);
+void adc(int *i);
+
+//aumenta valor no tpFila->final
+void adc(int *i)
+{
+	(*i)++;
+	if(*i==MAX)
+		*i=0;
+}
+
+//INICIA FILA
+void iniciaFila(tpFila *f)
+{
+	f -> total = 0;
+	f -> comeco = 0;
+	f -> final = 0;
+}
+
+//VERIFICA SE A FILA ESTÁ CHEIA
+int filaCheia(tpFila *f)
+{
+	return (f->total==MAX);
+}
+
+//VERIFICA SE A FILA ESTÁ VAZIA
+int filaVazia(tpFila *f)
+{
+	return (f->total==0);
+}
+
+//COLOCAR UM DADO NA FILA
+void entraFila(tpFila *f, tpAviao a)
+{
+	if(filaCheia(f)==0)
+	{
+		f->valor[f->final]= a;
+		adc(&f->final);
+		f->total++;
+		printf(" AVIAO ID: %d |\n NOME: %c |\n MODELO %c \n entrando na fila para decolagem... \n ORIGEM: %c |\n DESTINO: %c |\n LOTACAO %d / %d ",a.id , a.nome , a.modelo , a.origem , a.destino , a.numPass , a.capacidade);
+	} else{
+		printf("Fila cheia! \n\n");
+	}
+}
+
+//RETIRAR UM DADO DA FILA
+tpAviao sairFila(tpFila *f)
+{
+	tpAviao a;
+	if(filaVazia(f)==0)
+	{
+		a=(f->valor[f->comeco]);
+		adc(&f->comeco);
+		f->total--;
+		return a;
+	}
+	else
+	{
+		printf("Fila Vazia");
+	}
+}
+	
+void mostrarFila(tpFila *f)
+{
+	int i;
+	printf("Avioes na pista: \n");
+	for(i = 0; i < MAX; i++)
+	{
+		tpAviao aviaoAtivo = tpFila[i];
+		printf(" AVIAO ID: %d |\n NOME: %c |\n MODELO %c |\n  ORIGEM: %c |\n DESTINO: %c |\n LOTACAO %d / %d  \n \n",a.id , avRetira.nome , avRetira.modelo , avRetira.origem , avRetira.destino , avRetira.numPass , avRetira.capacidade);
+	}
+}
+
+//PROGRAMA PRINCIPAL
+int main()
+{
+	int i, op;
+	tpFila f;
+	
+	iniciaFila(&f);
+		printf("Bem vindo operador de Trafego");
+		printf("-----------------------------");
+	
+	for( ; ; )
+	{
+		printf("1) MOSTRAR AVIOES");
+		printf("2) CADASTRA AS NAVE TUDO");
+		printf("3) TIRA DA PISTA");
+		printf("4) SAIR");
+		scanf("%d",&op);
+		if(op == 4)
+		{
+			printf("saindo do programa....");
+			break;
+		}
+		switch(op)
+		{
+			case 1:
+			//status da fila
+			break;
+		
+			case 2:
+				//CADASTRAR NA FILA
+				tpAviao av;
+				printf("Digite o id do Aviao:");
+				scanf("%d",&av->id);
+				printf("Digite o nome do Avião");
+				gets(av->nome);
+				printf("Digite a Origem do Aviao");
+				gets(av->origem);
+				printf("Digite o Destino do aviao");
+				gets(av->destino);
+				printf("Digite o numero de passageiros:");
+				scanf("%d",&av->numPass);
+				printf("Digite a Capacidade do Aviao:");
+				scanf("%d",&av->capacidade);
+				printf("Digite o model do Aviao:");
+				gets(av->modelo);
+				
+				entrarFila(&f, av);	
+				
+				
+				
+				
+				
+			break;
+			
+			case 3:
+				//tira pista
+				printf("Autorizada a decolagem:");
+				tpAviao avRetira;
+				avRetira = sairFila(&f);
+				printf(" AVIAO ID: %d |\n NOME: %c |\n MODELO %c \n decolando... \n ORIGEM: %c |\n DESTINO: %c |\n LOTACAO %d / %d ",avRetira.id , avRetira.nome , avRetira.modelo , avRetira.origem , avRetira.destino , avRetira.numPass , avRetira.capacidade);
+			break;
+			
+			default:
+			
+			break;
+		}
+	}
+	system("pause");
+	return 0;
+}
