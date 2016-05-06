@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MAX 5
+
+ 
+typedef struct{
+    char[30] tipo;
+    char[30] cliente;
+}Placa;
+ 
+ 
+typedef struct{
+    int topo;
+    Placa valor[MAX];
+}PilhaPlaca;
+
+typedef struct{
+    int topo;
+    PilhaPlaca valor[MAX];
+}PilhaPilhaPlaca;
+ 
+//Inicia PilhaPlaca
+void init(PilhaPlaca *p);
+ 
+//verifica se a PilhaPlaca esta cheia
+int isFull(PilhaPlaca *p);
+ 
+//verifica se a PilhaPlaca esta vazia
+int isEmpty(PilhaPlaca *p);
+ 
+//coloca um dado no topo da PilhaPlaca
+void push(PilhaPlaca *p, Placa x);
+ 
+//retirar um dado do topo da PilhaPlaca
+Placa pop(PilhaPlaca *p);
+ 
+//copiar um dado do topo da PilhaPlaca
+Placa top(PilhaPlaca *p);
+ 
+int main(){
+    Placa placa;
+    PilhaPlaca pilha;
+ 
+    printf("BEM VINDO AO CAMINHÃO");
+    
+    printf("Digite o tipo da Placa:");
+    gets(placa->tipo);
+    
+    printf("Digite o cliente da placa:");
+    gets(placa->cliente);
+ 
+    init(&pilha);
+    
+    // entra com a placa na pilha
+ 
+    printf("\n\n Valor devolvido pela PilhaPlaca: ");
+    while(isEmpty(&p)==0){
+        printf("%c", pop(&p));
+    }
+    printf("\n\n\n");
+    system("pause");
+    return 0;
+}
+// incluir o conteudo do PilhaPlaca.c ( menos a linha 1 )
+
+ 
+
+ 
+//Inicia PilhaPlaca
+void init(PilhaPlaca *p){
+    p->topo = -1;
+}
+ 
+//verifica se a PilhaPlaca esta cheia
+int isFull(PilhaPlaca *p){
+    return (p-> topo ==MAX-1);
+}
+ 
+//verifica se a PilhaPlaca esta vazia
+int isEmpty(PilhaPlaca *p){
+    return(p->topo==-1);
+}
+ 
+//coloca um dado no topo da PilhaPlaca
+void push(PilhaPlaca *p, Placa x){
+    if(isFull(p)==0){
+        p->valor[++p->topo]=x;
+    }else{
+        printf("PilhaPlaca cheia \n\n");
+    }
+}
+ 
+//retirar um dado do topo da PilhaPlaca
+Placa pop(PilhaPlaca *p){
+    if(isEmpty(p)==0){
+        return (p->valor[p->topo--]);
+    }else{
+        printf("PilhaPlaca vazia \n\n");
+    }
+ 
+}
+ 
+//copiar um dado do topo da PilhaPlaca
+Placa top(PilhaPlaca *p){
+    if(isEmpty(p)==0){
+        return (p->valor[ p-> topo]);
+    }else{
+        printf("PilhaPlaca vazia \n\n");
+    }
+}
