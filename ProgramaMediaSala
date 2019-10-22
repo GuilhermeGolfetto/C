@@ -4,21 +4,23 @@
  calcula a média aritmética e apresenta a média e os dados do vetor na tela.*/
 int main(int argc, char *argv[]) {
 	//declaração do vetor de do indice
-	int i;
-	float nota[5];
+	int i, qtd_alunos;
+	printf("Digite a quantidade de alunos: ");
+	scanf("%d", &qtd_alunos);
+	float nota[qtd_alunos];
 	//laço para preencher o vetor
-	for(i=0;i<5;i++){
+	for(i=0;i<qtd_alunos;i++){
 		printf("Digite a nota do aluno %d:",i);
 		scanf("%f",&nota[i]);
 	}
 	float soma=0;
 	//laco para somar as notas dos alunos a variavel soma
-	for(i=0;i<5;i++){
+	for(i=0;i<qtd_alunos;i++){
 		soma+=nota[i];
 		printf("Aluno %d nota: %f \n",i,nota[i]);
 	}
 	//calculo de notas pela quantidade de alunos
-	float media=soma/5;
+	float media=soma/qtd_alunos;
 	printf("a media dos alunos sera: %f \n",media);
 	getch();
 	return 0;
